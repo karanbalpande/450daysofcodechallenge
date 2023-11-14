@@ -1,0 +1,26 @@
+
+class Solution
+{
+    public static void sort012(int a[], int n)
+    {
+        // code here 
+        int largest = Integer.MIN_VALUE;
+		for(int i=0; i<n; i++) {
+			largest = Math.max(largest, a[i]);
+			
+		}
+		int count[] = new int[largest+1];
+		for(int i=0; i<n; i++) {
+			count[a[i]]++;
+		}
+		//sorting
+		int j=0;
+		for(int i=0; i<count.length; i++) {
+			while(count[i] > 0) {
+				a[j] = i;
+				j++;
+				count[i]--;
+			}
+		}
+    }
+}
